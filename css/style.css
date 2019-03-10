@@ -1,0 +1,345 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url(../img/bg.png);
+}
+
+header {
+	position: fixed;
+	height: 32px;
+	width: 100%;
+	background: #F8B751;
+	box-shadow: 0 0 4px 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-family: arial;
+	font-size: 12px;
+	z-index: 999;
+}
+
+.button-style {
+	border: none;
+	height: 32px;
+	background: transparent;
+	cursor: pointer;
+}
+
+.button-style:hover {
+	background: #F9C879;
+}
+
+.header-out {
+	height: 100px;
+	width: 100%;
+	padding-top: 32px;
+	background: url(../img/header_bg.png);
+	background-repeat: repeat;
+	z-index: 1;
+}
+
+.group {
+	height: 100px;
+	width: 1070px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.search-input {
+	height: 32px;
+	width: 550px;
+	text-indent: 10px;
+}
+
+.search-input:focus {
+	outline: none;
+}
+
+.search-button {
+	height: 38px;
+	width: 50px;
+	border: none;
+	background: #D8444E;
+	font-weight: bold;
+	color: #fff;
+	transition: all ease .3s;
+	cursor: pointer;
+}
+
+.search-button:hover {
+	color: #F8B751;
+}
+
+.send-tariffs-button {
+	color:black;
+	text-align: center;	
+	line-height: 38px;
+	text-decoration: none;
+	height: 38px;
+	width: 100px;
+	border: none;
+	background: #F8B751;
+	transition: all ease .3s;
+	cursor: pointer;
+}
+
+.send-tariffs-button:hover {
+	color: #fff;
+	background: #D8444E;
+}
+
+.menu-group {
+	height: 65px;
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: #CC2E38;
+	box-shadow: rgba(0, 0, 0, 0.15) 0 3px 8px 0; 
+}
+
+.flex-group {
+	height: 100px;
+	width: 980px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.menu {
+	height: 65px;
+	width: 120px;
+	text-decoration: none;
+	line-height: 65px;
+	color: #fff;
+	font-family: "Open Sans";
+	font-style: italic;
+	border-right: 1px solid #d33d45;
+	border-left: 1px solid #d33d45;
+	text-align: center;
+}
+
+.menu:hover {
+	transition: all ease .2s;
+	cursor: pointer;
+	background: #A72730;
+}
+
+.content {
+	margin: 40px auto;
+	width: 970px;
+	height: 100%;
+	background: white;
+	border-radius: 5px;
+}
+
+.bg {
+	display: flex;
+	justify-content: space-between;
+	background: transparent;
+}
+
+.recipies {
+	height: 100%;
+	width: 600px;
+	background: url(../img/follow-bg.png);
+	background-repeat: repeat;
+	border-radius: 3px;
+}
+
+.categories {
+	height: 600px;
+	width: 350px;
+	background: url(../img/follow-bg.png);
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+}
+
+.category-menu {
+	height: 30px;
+	width: 320px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: gray;
+	line-height: 30px;
+	padding-left: 30px;
+	color: #000;
+	font-weight: bold;
+	font-family: arial;
+	font-size: 12px;
+}
+
+.categories a {
+	text-decoration: none;
+}
+
+.recipe-title {
+	height: 30px;
+	width: 580px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom-style: 1px solid #9B252E;
+	padding: 10px; 
+	background: #FDE8C9; 
+	font-family: arial;
+}
+
+.recipe-title a {
+	text-decoration: none;
+	color: #9B252E;
+}
+
+.welcome-title {
+	height: 70px;
+	width: 580px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: justify;
+	padding: 10px;
+	font-family: arial;
+}
+
+.all-see-group {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.all-see {
+	height: 30px;
+	width: 150px;
+	background: #F8B751;
+	color: red;	
+	border: none;
+	cursor: pointer;
+	transition: all ease .3s;
+}
+
+.all-see:hover {
+	background: #EC9413;
+	color: #000;
+}
+
+.follow {
+	
+	width: 600px;
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+	font-family: arial;
+}
+
+.slider {
+	height: 150px;
+	width: 600px;
+	background: white;
+}
+
+.all-author-text {
+	text-align: center;
+	text-decoration: none;
+}
+
+.new-recipies {
+	margin-top: 10px; 
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.new-recipe {
+	height: 120px;
+	width: 250px;
+	display: flex;
+	justify-content: space-around;
+	font-size: 16px;
+	font-family: arial;
+}
+
+.new-recipe-group {
+	height: 100%;
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.new-post {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 100px;
+	width: 340px;
+	background: #fff;
+}
+
+.new-post a { 
+	text-decoration: none;
+	color: #CA303C;
+}
+
+footer {
+	height: 100px;
+	width: 100%;
+	background: #F6AE48;
+	line-height: 100px;
+}
+
+.mind {
+	margin: 0 auto;
+	height: 100px;
+	width: 970px;
+}
+
+.footer-logo {
+	position: absolute;
+	margin-left: 185px;
+	margin-top: -20px; 
+}
+
+.footer-copyright-text {
+	text-align: center;
+}
+
+/*-------------------------------------------*/
+
+.profil_detay{
+	height: 800px;
+	width: 1000px;
+	margin-left: 150px;
+	margin-top: 20px;
+	padding: 20px;
+	background: white;
+}
+.kisisel_bilgiler{
+	height: 200px;
+	width: 400px;
+
+	display: inline-block;
+}
+.profil_resim{
+	height: 120px;
+	width: 120px;
+	padding: 20px;
+	margin-left: 10px;
+	
+}
+.profil_resim img{
+	height: 120px;
+	width: 120px;
+}
+.kullanici_adi{
+	margin-top: -30px;
+	margin-left: 180px;
+}
+.tariflerim{
+	width: 750px;
+	height: 500px;
+	
+}
