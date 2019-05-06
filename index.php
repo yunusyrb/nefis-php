@@ -17,6 +17,7 @@ include "sistem/ayar.php";
 		<div class="login-button">
 			<?php
 				if (isset($_SESSION["giris"])) {
+					echo '<a href="profil_guncelleme.php" class="button-style">Profil</a>';
 					echo '<a href="cikis.php" class="button-style">Çıkış Yap</a>';
 				}
 				else{
@@ -40,7 +41,7 @@ include "sistem/ayar.php";
 				</form>
 			</div>
 
-			<button class="send-tariffs-button">Tarif Gönder</button>
+			<a href="tarif_gonder.php" class="send-tariffs-button">Tarif Gönder</a>
 		</div>
 	</section>
 	

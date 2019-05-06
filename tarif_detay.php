@@ -40,6 +40,7 @@ if ($_POST) {
 		<div class="login-button">
 			<?php
 				if (isset($_SESSION["giris"])) {
+					echo '<a href="profil_guncelleme.php" class="button-style">Profil</a>';
 					echo '<a href="cikis.php" class="button-style">Çıkış Yap</a>';
 				}
 				else{
@@ -189,18 +190,15 @@ if ($_POST) {
 		
 		<div class="categories">
 			<p>Kategoriler</p>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
-			<div class="category-menu"><a href="">Menü İsmi</a></div>
+			
+			<?php 
+				$kategoriler=$db->query("SELECT * FROM 	kategoriler",PDO::FETCH_ASSOC);
+				if ($kategoriler->rowCount()) {
+					foreach ($kategoriler as $kategori) {
+						echo '<div class="category-menu"><a href="kategori.php?id='.$kategori["kat_id"].'">'.$kategori["kat_isim"].'</a></div>';
+					}
+				}
+			 ?>
 		</div>
 	</section>
 

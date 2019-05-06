@@ -36,10 +36,18 @@ if ($_POST) {
 	<!--Başlık-->
 	<header>
 		<p><b>Nefis Yemek Tarifleri</b>, en çok okunan yemek tarifi paylaşım sitesi. Üye ol, tariflerini paylaş.</p>
-
 		<div class="login-button">
-			<button class="button-style">Giriş Yap</button>
-			<button class="button-style">Üye Ol</button>
+			<?php
+				if (isset($_SESSION["giris"])) {
+					echo '<a href="profil_guncelleme.php" class="button-style">Profil</a>';
+					echo '<a href="cikis.php" class="button-style">Çıkış Yap</a>';
+				}
+				else{
+					echo '<a href="giris.php" class="button-style">Giriş Yap</a>';
+					echo '<a href="kayit.php" class="button-style">Kayıt Ol</a>';	
+				}
+			?>
+					
 		</div>
 	</header>
 
