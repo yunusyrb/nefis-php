@@ -5,7 +5,7 @@ if (isset($_SESSION["giris"])) {
 
 }
 if ($_POST) {
-	$eposta=@$_POST["eposta"];
+	$eposta=	@$_POST["eposta"];
 	$sifre=@$_POST["sifre"];
 	$sifretekrar=@$_POST["sifretekrar"];
 	$adsoyad=@$_POST["adsoyad"];

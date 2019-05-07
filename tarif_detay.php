@@ -4,6 +4,7 @@ include "sistem/ayar.php";
 if (isset($_GET["id"])) {
 	$tarif_id=$_GET["id"];
 	$kontrol=$db->query("SELECT * FROM tarifler WHERE tarif_id='{$tarif_id}'" )->fetch(PDO::FETCH_ASSOC);
+	$begeni_sayisi=$db->query("SELECT * FROM begeniler WHERE tarif_id='{$tarif_id}'", PDO::FETCH_ASSOC);
 	if (!$kontrol) {
 		header("Location:index.php");
 	}
@@ -12,6 +13,7 @@ else{
 	header("Location:index.php");
 }
 $arttir=$db->prepare("UPDATE tarifler SET okunma=okunma+1 WHERE tarif_id={$tarif_id}")->execute();
+
 if ($_POST) {
 	if(isset($_POST["ust"])){
 		$ust_id = @$_POST["ust"];
@@ -137,6 +139,12 @@ if ($_POST) {
 				</div>
 				<?php } ?>
 				
+				<div class="begen">
+					<p>Beğeni sayısı :  <?php if($begeni_sayisi->rowCount()){ echo $begeni_sayisi->rowCount(); } else { echo "0"; } ?> </p>
+					<a href="begen.php?begen=<?php echo $_GET["id"]; ?>">Beğen</a>
+					<a href="begen.php?begenme=<?php echo $_GET["id"]; ?>">Beğenmekten Vazgeç</a>
+				</div>
+
 				<p style="font-size: 20px;font-weight: bold;text-decoration: underline;">Yorumlar</p>
 				
 				<?php if (isset($_SESSION["giris"])){ ?>
