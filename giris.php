@@ -2,14 +2,29 @@
 include "sistem/ayar.php";
 if (isset($_SESSION["giris"])) {
 	header("Location:index.php");
-
 }
+
+if(isset($_COOKIE["eposta"]) && isset($_COOKIE["sifre"])) {
+	$eposta = $_COOKIE["eposta"];
+	$sifre = $_COOKIE["sifre"];
+
+	$sorgu = $db->query("SELECT * FROM uyeler WHERE eposta = '{$eposta}' AND sifre = '{$sifre}'")->fetch(PDO::FETCH_ASSOC);
+	if($sorgu) {
+		$_SESSION["giris"]=$sorgu["uye_id"];
+		header("Location:index.php");
+	}
+}
+
 if ($_POST) {
 	$eposta=@$_POST["eposta"];
 	$sifre=@$_POST["sifre"];
 	$kontrol=$db->query("SELECT * FROM uyeler WHERE eposta='{$eposta}' AND sifre='{$sifre}'" )->fetch(PDO::FETCH_ASSOC);
 	if ($kontrol) {
-		$_SESSION["giris"]=$kontrol["uye_id"];
+		$_SESSION["giris"] = $kontrol["uye_id"];
+		if($_POST["beni_hatirla"]) {
+			setcookie('eposta', $eposta, time()+(60*60*24));
+			setcookie('sifre', $sifre, time()+(60*60*24));
+		}
 		header("Location:index.php");
 	}
 	else{
@@ -90,6 +105,10 @@ if ($_POST) {
 				<input type="submit" name="kaydet" id="kaydet" value="Giriş Yap">	
 			</div>
 			<br>
+			<div class="giris-sifre">
+				<input type="checkbox" name="beni_hatirla" id="beni_hatirla"> 
+				<label for="beni_hatirla">Beni Hatırla</label>
+			</div>
 			<?php 
 				if (isset($hata)) {
 					echo $hata;

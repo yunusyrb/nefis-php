@@ -40,8 +40,8 @@ else{
 			<img src="img/logo.jpg" alt="Nefis Yemek Tarifleri" height="100" width="100">
 
 			<div class="search-group">
-				<form action="" method="POST">
-					<input type="text" name="search-input" placeholder="Hangi tarifi istersin?" class="search-input" />
+				<form action="ara.php" method="get">
+					<input type="text" name="s" placeholder="Hangi tarifi istersin?" class="search-input" />
 					<input type="submit" name="search-button" class="search-button" value="Ara" />
 				</form>
 			</div>
@@ -70,7 +70,7 @@ else{
 		<div class="recipies">
 			<div class="new-recipies">
 				<?php 
-					$tarifler=$db->query("SELECT * FROM tarifler WHERE baslik LIKE  '%{$s}%	' ORDER BY tarif_id DESC LIMIT 8",PDO::FETCH_ASSOC);
+					$tarifler=$db->query("SELECT * FROM tarifler WHERE baslik LIKE '%{$s}%' ORDER BY tarif_id DESC LIMIT 8", PDO::FETCH_ASSOC);
 					if ($tarifler->rowCount()) {
 						foreach ($tarifler as $tarif) {
 								echo '<div class="new-recipe">

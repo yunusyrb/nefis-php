@@ -1,6 +1,18 @@
 <?php 
 include "sistem/ayar.php";
 
+if(!isset($_SESSION["giris"])) {
+	if(isset($_COOKIE["eposta"]) && isset($_COOKIE["sifre"])) {
+		$eposta = $_COOKIE["eposta"];
+		$sifre = $_COOKIE["sifre"];
+	
+		$sorgu = $db->query("SELECT * FROM uyeler WHERE eposta = '{$eposta}' AND sifre = '{$sifre}'")->fetch(PDO::FETCH_ASSOC);
+		if($sorgu) {
+			$_SESSION["giris"]=$sorgu["uye_id"];
+		}
+	}
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="tr">
