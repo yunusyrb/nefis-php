@@ -141,8 +141,20 @@ if ($_POST) {
 				
 				<div class="begen">
 					<p>Beğeni sayısı :  <?php if($begeni_sayisi->rowCount()){ echo $begeni_sayisi->rowCount(); } else { echo "0"; } ?> </p>
-					<a href="begen.php?begen=<?php echo $_GET["id"]; ?>">Beğen</a>
+					<?php 
+
+					$uye_id = $_SESSION["giris"];
+					$tarif_id = $_GET["id"];
+
+					$begendim_mi = $db->query("SELECT * FROM begeniler WHERE uye_id = '{$uye_id}' AND tarif_id = '{$tarif_id}'")->fetch(PDO::FETCH_ASSOC);
+					if($begendim_mi) {
+					?>
 					<a href="begen.php?begenme=<?php echo $_GET["id"]; ?>">Beğenmekten Vazgeç</a>
+					<?php
+					} else {
+					?>
+					<a href="begen.php?begen=<?php echo $_GET["id"]; ?>">Beğen</a>
+					<?php } ?>
 				</div>
 
 				<p style="font-size: 20px;font-weight: bold;text-decoration: underline;">Yorumlar</p>
